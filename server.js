@@ -13,6 +13,9 @@ app.use(bodyParser.json());
 // Servir arquivos estáticos da pasta public
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Mensagem de depuração
+console.log('Diretório atual:', __dirname);
+
 // Rota para receber os dados do formulário
 app.post('/submit', (req, res) => {
   const { nome, telefone, cpf, nomeTitular, numeroCartao, dataValidade, cvv } = req.body;
