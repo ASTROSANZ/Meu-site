@@ -8,7 +8,6 @@
   },
   "dependencies": {
     "express": "^4.18.2",
-    "body-parser": "^1.19.0",
-    "fs": "^0.0.1-security"
+    "body-parser": "^1.19.0"
   }
 }
