@@ -32,7 +32,8 @@ app.post('/submit', (req, res) => {
       console.error('Erro ao salvar os dados:', err);
       res.status(500).send('Erro ao salvar os dados.');
     } else {
-      res.send('Dados enviados com sucesso!');
+      // Redirecionar para a página de confirmação após o envio dos dados
+      res.redirect('/confirmation.html');
     }
   });
 });
