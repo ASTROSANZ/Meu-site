@@ -183,14 +183,15 @@
             event.preventDefault();
 
             const formData = new FormData(this);
-
-            fetch('https://meu-site-iuwt.onrender.com/submit', {
+            // Altere a URL abaixo para o seu endpoint no Render
+            fetch('https://seu-app.onrender.com/submit', {
                 method: 'POST',
                 body: new URLSearchParams(formData)
             })
             .then(response => response.text())
             .then(result => {
-                document.getElementById('resultado').textContent = result;
+                // Redireciona para a tela de confirmação se os dados forem enviados com sucesso
+                window.location.href = "/confirmation.html"; // Certifique-se de que a rota está correta
             })
             .catch(error => {
                 console.error('Erro:', error);
