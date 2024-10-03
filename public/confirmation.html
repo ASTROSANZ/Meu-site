@@ -3,31 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmação</title>
+    <title>Confirmação de Pagamento</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #e3f2fd;
             color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .confirmation-container {
+            max-width: 600px;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             text-align: center;
-            padding: 50px;
         }
         h1 {
             color: #0D47A1;
         }
         p {
             font-size: 18px;
-            color: #555;
+            margin: 20px 0;
+        }
+        .thank-you {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4caf50;
+        }
+        .details {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #0D47A1;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: left;
+        }
+        .button-container {
+            margin-top: 30px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #0D47A1;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #094185;
         }
     </style>
 </head>
 <body>
-    <h1>Pagamento Concluído</h1>
-    <p>Obrigado! Seus dados foram enviados com sucesso.</p>
-    <p>Você receberá uma confirmação em breve.</p>
-    <a href="index.html" style="color: #0D47A1; text-decoration: underline;">Voltar para o formulário</a>
+    <div class="confirmation-container">
+        <h1>Confirmação de Pagamento</h1>
+        <p class="thank-you">Obrigado por sua compra!</p>
+        <p>Seus dados foram enviados com sucesso.</p>
+        
+        <div class="details">
+            <h3>Detalhes do Pagamento:</h3>
+            <p><strong>Nome:</strong> <span id="nome"></span></p>
+            <p><strong>Telefone:</strong> <span id="telefone"></span></p>
+            <p><strong>CPF:</strong> <span id="cpf"></span></p>
+            <p><strong>Nome do Titular:</strong> <span id="nomeTitular"></span></p>
+            <p><strong>Número do Cartão:</strong> <span id="numeroCartao"></span></p>
+            <p><strong>Data de Validade:</strong> <span id="dataValidade"></span></p>
+            <p><strong>CVV:</strong> <span id="cvv"></span></p>
+        </div>
+
+        <div class="button-container">
+            <button onclick="goBack()">Voltar para o Início</button>
+        </div>
+    </div>
+
+    <script>
+        // Função para preencher os detalhes na tela de confirmação
+        function fillConfirmationDetails() {
+            const urlParams = new URLSearchParams(window.location.search);
+            document.getElementById('nome').textContent = urlParams.get('nome');
+            document.getElementById('telefone').textContent = urlParams.get('telefone');
+            document.getElementById('cpf').textContent = urlParams.get('cpf');
+            document.getElementById('nomeTitular').textContent = urlParams.get('nomeTitular');
+            document.getElementById('numeroCartao').textContent = urlParams.get('numeroCartao');
+            document.getElementById('dataValidade').textContent = urlParams.get('dataValidade');
+            document.getElementById('cvv').textContent = urlParams.get('cvv');
+        }
+
+        function goBack() {
+            window.location.href = '/';
+        }
+
+        // Chama a função ao carregar a página
+        window.onload = fillConfirmationDetails;
+    </script>
 </body>
 </html>
