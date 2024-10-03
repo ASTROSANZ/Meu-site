@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmação de Pagamento</title>
+    <title>Confirmação</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -12,48 +12,22 @@
             padding: 0;
             background-color: #f4f4f4;
             color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .confirmation-container {
-            max-width: 400px;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             text-align: center;
+            padding: 50px;
         }
         h1 {
             color: #0D47A1;
-            margin-bottom: 10px;
         }
         p {
+            font-size: 18px;
             color: #555;
-            margin: 10px 0;
-        }
-        .button {
-            background-color: #0D47A1;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
-        .button:hover {
-            background-color: #094185;
         }
     </style>
 </head>
 <body>
-    <div class="confirmation-container">
-        <h1>Pagamento Confirmado!</h1>
-        <p>Obrigado pela sua compra!</p>
-        <p>Sua compra foi processada com sucesso.</p>
-        <button class="button" onclick="window.location.href='index.html'">Voltar para a Página Inicial</button>
-    </div>
+    <h1>Pagamento Concluído</h1>
+    <p>Obrigado! Seus dados foram enviados com sucesso.</p>
+    <p>Você receberá uma confirmação em breve.</p>
+    <a href="index.html" style="color: #0D47A1; text-decoration: underline;">Voltar para o formulário</a>
 </body>
 </html>
