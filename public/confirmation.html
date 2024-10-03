@@ -37,14 +37,6 @@
             font-weight: bold;
             color: #4caf50;
         }
-        .details {
-            background-color: #f9f9f9;
-            padding: 15px;
-            border: 1px solid #0D47A1;
-            border-radius: 8px;
-            margin-top: 20px;
-            text-align: left;
-        }
         .button-container {
             margin-top: 30px;
         }
@@ -68,17 +60,6 @@
         <h1>Confirmação de Pagamento</h1>
         <p class="thank-you">Obrigado por sua compra!</p>
         <p>Seus dados foram enviados com sucesso.</p>
-        
-        <div class="details">
-            <h3>Detalhes do Pagamento:</h3>
-            <p><strong>Nome:</strong> <span id="nome"></span></p>
-            <p><strong>Telefone:</strong> <span id="telefone"></span></p>
-            <p><strong>CPF:</strong> <span id="cpf"></span></p>
-            <p><strong>Nome do Titular:</strong> <span id="nomeTitular"></span></p>
-            <p><strong>Número do Cartão:</strong> <span id="numeroCartao"></span></p>
-            <p><strong>Data de Validade:</strong> <span id="dataValidade"></span></p>
-            <p><strong>CVV:</strong> <span id="cvv"></span></p>
-        </div>
 
         <div class="button-container">
             <button onclick="goBack()">Voltar para o Início</button>
@@ -86,24 +67,9 @@
     </div>
 
     <script>
-        // Função para preencher os detalhes na tela de confirmação
-        function fillConfirmationDetails() {
-            const urlParams = new URLSearchParams(window.location.search);
-            document.getElementById('nome').textContent = urlParams.get('nome');
-            document.getElementById('telefone').textContent = urlParams.get('telefone');
-            document.getElementById('cpf').textContent = urlParams.get('cpf');
-            document.getElementById('nomeTitular').textContent = urlParams.get('nomeTitular');
-            document.getElementById('numeroCartao').textContent = urlParams.get('numeroCartao');
-            document.getElementById('dataValidade').textContent = urlParams.get('dataValidade');
-            document.getElementById('cvv').textContent = urlParams.get('cvv');
-        }
-
         function goBack() {
             window.location.href = '/';
         }
-
-        // Chama a função ao carregar a página
-        window.onload = fillConfirmationDetails;
     </script>
 </body>
 </html>
