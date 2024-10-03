@@ -16,6 +16,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Mensagem de depuração
 console.log('Diretório atual:', __dirname);
 
+// Rota para servir o arquivo index.html
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 // Rota para receber os dados do formulário
 app.post('/submit', (req, res) => {
   const { nome, telefone, cpf, nomeTitular, numeroCartao, dataValidade, cvv } = req.body;
