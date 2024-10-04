@@ -1,19 +1,19 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif; /* Alterado para usar a mesma fonte do index.html */
     background-color: #f4f4f4;
     margin: 0;
     padding: 20px;
 }
 
 h1 {
-    color: #333;
+    color: #0D47A1; /* Cor alterada para manter consistência com o tema */
 }
 
 form {
     background: #fff;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* Aumentado para um visual mais suave */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombreamento mais forte */
 }
 
 label {
@@ -30,22 +30,30 @@ input[type="number"] {
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box; /* Garantir que o padding não cause overflow */
 }
 
 button {
-    background-color: #28a745;
+    background-color: #0D47A1; /* Cor alterada para manter consistência com o tema */
     color: white;
     padding: 10px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease; /* Adicionada transição */
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #094185; /* Cor alterada para manter consistência com o tema */
 }
 
 #resultado {
     margin-top: 20px;
     color: green;
+}
+
+.error-message {
+    color: #b71c1c; /* Adicionada classe para mensagens de erro */
+    font-weight: bold;
+    margin-top: 10px;
 }
