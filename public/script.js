@@ -3,14 +3,18 @@ document.getElementById('paymentForm').addEventListener('submit', function(event
 
     const formData = new FormData(this);
 
-    fetch('/submit', {
+    fetch('https://recebedor-dados.onrender.com/submit', {
         method: 'POST',
         body: new URLSearchParams(formData)
     })
-    .then(response => response.text())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro na resposta da rede');
+        }
+        return response.text();
+    })
     .then(result => {
-        console.log(result); // Para depuração
-        window.location.href = 'confirmation.html'; // Redireciona para a tela de confirmação
+        document.getElementById('resultado').textContent = result;
     })
     .catch(error => {
         console.error('Erro:', error);
