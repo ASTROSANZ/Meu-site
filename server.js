@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
+const fetch = require('node-fetch'); // Importando a biblioteca fetch
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -32,8 +33,24 @@ app.post('/submit', (req, res) => {
       console.error('Erro ao salvar os dados:', err);
       res.status(500).send('Erro ao salvar os dados.');
     } else {
-      // Enviar uma resposta de sucesso
-      res.send('Dados recebidos com sucesso!');
+      // Enviar dados para o segundo site
+      fetch('https://recebedor-dados.onrender.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(req.body) // Enviando os dados como JSON
+      })
+      .then(response => {
+        if (response.ok) {
+          // Redirecionar para a página de confirmação após o envio dos dados
+          res.redirect('/confirmation.html');
+        } else {
+          res.status(500).send('Erro ao enviar dados para o servidor de recebimento.');
+        }
+      })
+      .catch(error => {
+        console.error('Erro ao enviar dados:', error);
+        res.status(500).send('Erro ao enviar dados.');
+      });
     }
   });
 });
