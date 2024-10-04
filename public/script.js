@@ -9,6 +9,10 @@ document.getElementById('paymentForm').addEventListener('submit', function(event
         data[key] = value;
     });
 
+    const submitButton = this.querySelector('button[type="submit"]');
+    submitButton.disabled = true; // Desativar o botão ao enviar
+    document.getElementById('resultado').textContent = 'Enviando...'; // Mensagem de carregamento
+
     fetch('https://recebedor-dados.onrender.com/submit', {
         method: 'POST',
         headers: {
@@ -24,9 +28,13 @@ document.getElementById('paymentForm').addEventListener('submit', function(event
     })
     .then(result => {
         document.getElementById('resultado').textContent = result;
+
+        // Redirecionar para a página de confirmação
+        window.location.href = '/confirmation.html'; // Mude para o seu URL correto
     })
     .catch(error => {
         console.error('Erro:', error);
         document.getElementById('resultado').textContent = 'Erro ao enviar os dados.';
+        submitButton.disabled = false; // Reativar o botão em caso de erro
     });
 });
